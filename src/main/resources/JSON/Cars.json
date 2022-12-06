@@ -1,0 +1,109 @@
+{
+  "repo" : {
+    "1" : {
+      "id" : 1,
+      "model" : "Mustang",
+      "manufacturer" : "Ford",
+      "costPerDay" : 49.0,
+      "taken" : true
+    },
+    "2" : {
+      "id" : 2,
+      "model" : "Model S",
+      "manufacturer" : "Tesla",
+      "costPerDay" : 69.0,
+      "taken" : true
+    },
+    "3" : {
+      "id" : 3,
+      "model" : "Logan",
+      "manufacturer" : "Dacia",
+      "costPerDay" : 19.0,
+      "taken" : false
+    },
+    "4" : {
+      "id" : 4,
+      "model" : "Punto",
+      "manufacturer" : "Fiat",
+      "costPerDay" : 14.0,
+      "taken" : false
+    },
+    "5" : {
+      "id" : 5,
+      "model" : "Duster",
+      "manufacturer" : "Dacia",
+      "costPerDay" : 30.0,
+      "taken" : true
+    }
+  },
+  "size" : 5,
+  "map" : {
+    "1" : {
+      "id" : 1,
+      "model" : "Mustang",
+      "manufacturer" : "Ford",
+      "costPerDay" : 49.0,
+      "taken" : true
+    },
+    "2" : {
+      "id" : 2,
+      "model" : "Model S",
+      "manufacturer" : "Tesla",
+      "costPerDay" : 69.0,
+      "taken" : true
+    },
+    "3" : {
+      "id" : 3,
+      "model" : "Logan",
+      "manufacturer" : "Dacia",
+      "costPerDay" : 19.0,
+      "taken" : false
+    },
+    "4" : {
+      "id" : 4,
+      "model" : "Punto",
+      "manufacturer" : "Fiat",
+      "costPerDay" : 14.0,
+      "taken" : false
+    },
+    "5" : {
+      "id" : 5,
+      "model" : "Duster",
+      "manufacturer" : "Dacia",
+      "costPerDay" : 30.0,
+      "taken" : true
+    }
+  },
+  "greatestID" : 5,
+  "values" : [ {
+    "id" : 1,
+    "model" : "Mustang",
+    "manufacturer" : "Ford",
+    "costPerDay" : 49.0,
+    "taken" : true
+  }, {
+    "id" : 2,
+    "model" : "Model S",
+    "manufacturer" : "Tesla",
+    "costPerDay" : 69.0,
+    "taken" : true
+  }, {
+    "id" : 3,
+    "model" : "Logan",
+    "manufacturer" : "Dacia",
+    "costPerDay" : 19.0,
+    "taken" : false
+  }, {
+    "id" : 4,
+    "model" : "Punto",
+    "manufacturer" : "Fiat",
+    "costPerDay" : 14.0,
+    "taken" : false
+  }, {
+    "id" : 5,
+    "model" : "Duster",
+    "manufacturer" : "Dacia",
+    "costPerDay" : 30.0,
+    "taken" : true
+  } ]
+}

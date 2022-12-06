@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="522.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <TableView fx:id="carTable" prefHeight="200.0" prefWidth="501.0">
+              <columns>
+                <TableColumn fx:id="carIDColumn" editable="false" prefWidth="30.0" text="ID" />
+                <TableColumn fx:id="carMakeColumn" prefWidth="121.0" text="Manifacturer" />
+                  <TableColumn fx:id="carModelColumn" prefWidth="178.0" text="Model" />
+                  <TableColumn fx:id="carPriceColumn" prefWidth="83.0" text="Price Per Day" />
+                  <TableColumn fx:id="carAvailableColumn" prefWidth="69.0" text="Available" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</VBox>

@@ -1,0 +1,5 @@
+1,Ford,Mustang,49.0,0
+2,Tesla,Model S,69.0,0
+3,Dacia,Logan,19.0,1
+4,Fiat,Punto,14.0,1
+5,Dacia,Duster,30.0,0

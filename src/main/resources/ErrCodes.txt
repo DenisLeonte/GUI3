@@ -1,0 +1,8 @@
+The object type and repository type don't match
+Object already exists in the repository
+Object doesn't exist in the repository
+Index out of bounds
+File doesn't exist
+ID must be bigger than 0
+Price must be bigger than 0.00
+Car already occupied
