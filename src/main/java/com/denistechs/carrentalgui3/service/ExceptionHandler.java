@@ -1,6 +1,8 @@
 package com.denistechs.carrentalgui3.service;
 
 
+import javafx.scene.control.Alert;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -57,6 +59,22 @@ public class ExceptionHandler{
     public String handle(ExceptionCode e)
     {
         return this.get(e.getCode() - 1);
+    }
+
+    public void GUIHandle(ExceptionCode e)
+    {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("Error code: " + e.getCode());
+        alert.setContentText(this.get(e.getCode() - 1));
+        alert.showAndWait();
+    }
+
+    public static void GUIHandle(RuntimeException e){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setContentText(e.getMessage());
+        alert.showAndWait();
     }
 
 }

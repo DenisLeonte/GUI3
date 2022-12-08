@@ -32,23 +32,13 @@
             </value>
         </entry>
         <entry>
-            <key xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:int">4</key>
+            <key xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:int">6</key>
             <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="car">
-                <ID xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:int">4</ID>
-                <costPerDay>14.0</costPerDay>
-                <manufacturer>Fiat</manufacturer>
-                <model>Punto</model>
+                <ID xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:int">6</ID>
+                <costPerDay>25.0</costPerDay>
+                <manufacturer>Ford</manufacturer>
+                <model>Mondeo</model>
                 <taken>false</taken>
-            </value>
-        </entry>
-        <entry>
-            <key xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:int">5</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="car">
-                <ID xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:int">5</ID>
-                <costPerDay>30.0</costPerDay>
-                <manufacturer>Dacia</manufacturer>
-                <model>Duster</model>
-                <taken>true</taken>
             </value>
         </entry>
     </repo>

@@ -68,7 +68,7 @@ public class CarRentalRepositoryFileHandler {
         }catch (IOException ex)
         {
             //File doesn't exist
-            throw new RuntimeException("CarRentalRepositoryFileHandler.saveToJSON: File not found");
+            ex.printStackTrace();
         }
     }
 

@@ -180,7 +180,7 @@ public class CarRepositoryFileHandler {
         }catch (IOException ex)
         {
             //File doesn't exist
-            throw new RuntimeException("CarRepositoryFileHandler.saveToJSON: File not found");
+            ex.printStackTrace();
         }
     }
 

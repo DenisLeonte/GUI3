@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.denistechs.carrentalgui3.domain.Car;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 @XmlRootElement
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -41,4 +44,45 @@ public class CarRepository extends MemoryRepository<Integer, Car>{
         }
         return sb.toString();
     }
+
+    public HashMap<String, Integer> getAllManufacturers(){
+        Map<String, Integer> m = new HashMap<>();
+        for(Car c : this.repo.values())
+        {
+            if(m.containsKey(c.getManufacturer()))
+            {
+                m.put(c.getManufacturer(), m.get(c.getManufacturer()) + 1);
+            }
+            else
+            {
+                m.put(c.getManufacturer(), 1);
+            }
+        }
+        return (HashMap<String, Integer>) m;
+    }
+
+    public double getMinPrice(){
+        double min = Double.MAX_VALUE;
+        for(Car c : this.repo.values())
+        {
+            if(c.getCostPerDay() <= min)
+            {
+                min = c.getCostPerDay();
+            }
+        }
+        return min;
+    }
+
+    public double getMaxPrice(){
+        double max = Double.MIN_VALUE;
+        for(Car c : this.repo.values())
+        {
+            if(c.getCostPerDay() >= max)
+            {
+                max = c.getCostPerDay();
+            }
+        }
+        return max;
+    }
+
 }

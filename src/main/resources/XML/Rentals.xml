@@ -31,20 +31,5 @@
                 </rentedCar>
             </value>
         </entry>
-        <entry>
-            <key xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:int">4</key>
-            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="carRental">
-                <ID xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:int">4</ID>
-                <numberOfDays>3</numberOfDays>
-                <rentalName>Andrei</rentalName>
-                <rentedCar>
-                    <ID xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:type="xs:int">5</ID>
-                    <costPerDay>30.0</costPerDay>
-                    <manufacturer>Dacia</manufacturer>
-                    <model>Duster</model>
-                    <taken>true</taken>
-                </rentedCar>
-            </value>
-        </entry>
     </repo>
 </carRentalRepository>
