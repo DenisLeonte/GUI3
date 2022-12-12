@@ -1,7 +1,7 @@
 package com.denistechs.carrentalgui3.repository;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.denistechs.carrentalgui3.domain.Car;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.util.HashMap;

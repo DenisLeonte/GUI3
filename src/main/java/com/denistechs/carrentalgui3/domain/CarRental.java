@@ -102,4 +102,12 @@ public class CarRental extends Entity<Integer>{
     public void setRentalName(String rentalName) {
         this.rentalName = rentalName;
     }
+
+    public String getCarString(){
+        return this.rentedCar.getManufacturer() + " " + this.rentedCar.getModel();
+    }
+
+    public double getCost(){
+        return this.numberOfDays*this.rentedCar.getCostPerDay();
+    }
 }

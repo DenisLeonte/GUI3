@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6f05e81-09c4-45a5-8f7f-cef8437b9947" name="Changes" comment="good shit it works">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/burningwave.static.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/RentalHypervisorGUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/util/CarRentalRepositoryAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/denistechs/carrentalgui3/Rental-view.fxml" afterDir="false" />
+    <list default="true" id="b6f05e81-09c4-45a5-8f7f-cef8437b9947" name="Changes" comment="still works">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/service/actionHandler/ActionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/service/actionHandler/ActionRentalHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/service/actionHandler/actions/Action.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/service/actionHandler/actions/ActionRental.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/service/actionHandler/actions/AddAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/service/actionHandler/actions/AddRentalAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/service/actionHandler/actions/ModifyAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/service/actionHandler/actions/ModifyRentalAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/service/actionHandler/actions/RemoveAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/service/actionHandler/actions/RemoveRentalAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/HypervisorGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/HypervisorGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/MainGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/RentalHypervisorGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/RentalHypervisorGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/domain/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/domain/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/domain/CarRental.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/domain/CarRental.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/fileHandlers/CarRentalRepositoryFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/fileHandlers/CarRentalRepositoryFileHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/fileHandlers/CarRepositoryFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/fileHandlers/CarRepositoryFileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/repository/CarRentalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/repository/CarRentalRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/repository/CarRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/repository/CarRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/repository/MemoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/repository/MemoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/repository/repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/repository/repository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/service/ExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/service/ExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/service/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/service/Validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/denistechs/carrentalgui3/util/CarRentalRepositoryAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ErrCodes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ErrCodes.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/JSON/Cars.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/JSON/Cars.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/JSON/Rentals.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/JSON/Rentals.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/XML/Cars.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/XML/Cars.xml" afterDir="false" />
@@ -26,6 +41,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/resources/binary/Cars.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/binary/Cars.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/binary/Rentals.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/binary/Rentals.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/denistechs/carrentalgui3/Car-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/denistechs/carrentalgui3/Car-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/denistechs/carrentalgui3/Rental-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/denistechs/carrentalgui3/Rental-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/text/CarRentals.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/text/CarRentals.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/text/Cars.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/text/Cars.txt" afterDir="false" />
     </list>
@@ -38,9 +54,18 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -51,6 +76,9 @@
         <option name="workspaceImportEnabled" value="true" />
       </MavenImportingSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2IX7OjrvOQSSkVHJLar4wLVIWER" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -74,6 +102,8 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -166,6 +196,16 @@
       <workItem from="1670420039913" duration="4071000" />
       <workItem from="1670429532016" duration="584000" />
       <workItem from="1670432403785" duration="1446000" />
+      <workItem from="1670485836549" duration="9727000" />
+      <workItem from="1670505858506" duration="2077000" />
+      <workItem from="1670538049592" duration="383000" />
+      <workItem from="1670538456443" duration="39000" />
+      <workItem from="1670611692293" duration="4806000" />
+      <workItem from="1670676930600" duration="2618000" />
+      <workItem from="1670777433200" duration="35000" />
+      <workItem from="1670786906004" duration="1949000" />
+      <workItem from="1670792415232" duration="1750000" />
+      <workItem from="1670836134903" duration="1394000" />
     </task>
     <task id="LOCAL-00001" summary="good shit it works">
       <created>1670329740730</created>
@@ -174,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670329740730</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="still works">
+      <created>1670486160901</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670486160901</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +241,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="good shit it works" />
-    <option name="LAST_COMMIT_MESSAGE" value="good shit it works" />
+    <MESSAGE value="still works" />
+    <option name="LAST_COMMIT_MESSAGE" value="still works" />
   </component>
 </project>

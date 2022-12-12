@@ -1,13 +1,198 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" onKeyPressed="#handleUndoRedo" prefHeight="531.0" prefWidth="522.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="522.0" spacing="20.0">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <TableView fx:id="rentalTable" editable="true" minHeight="-Infinity" onMouseClicked="#onRentalTableClick" prefHeight="200.0" prefWidth="424.0" BorderPane.alignment="CENTER">
+                     <columns>
+                        <TableColumn fx:id="rentalIDColumn" editable="false" prefWidth="30.0" resizable="false" sortType="DESCENDING" text="ID" />
+                        <TableColumn fx:id="rentalCarColumn" prefWidth="220.0" resizable="false" text="Car" />
+                        <TableColumn fx:id="rentalNameColumn" prefWidth="151.0" resizable="false" text="Name" />
+                        <TableColumn fx:id="rentalDaysColumn" prefWidth="34.0" text="Days" />
+                        <TableColumn fx:id="rentalPriceColumn" minWidth="0.0" prefWidth="46.0" text="Price" />
+                     </columns>
+                  </TableView>
+               </center>
+               <bottom>
+                  <HBox prefHeight="141.0" prefWidth="482.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Pane prefHeight="133.0" prefWidth="314.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox prefHeight="135.0" prefWidth="100.0" spacing="10.0">
+                                       <children>
+                                          <TextField fx:id="rentalNameInput" prefHeight="25.0" prefWidth="128.0" />
+                                          <TextField fx:id="rentalDaysInput" />
+                                          <ChoiceBox fx:id="carIDCombo" prefHeight="25.0" prefWidth="50.0">
+                                             <VBox.margin>
+                                                <Insets left="48.0" />
+                                             </VBox.margin>
+                                          </ChoiceBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rental Name" wrappingWidth="94.048828125">
+                                             <VBox.margin>
+                                                <Insets top="3.0" />
+                                             </VBox.margin>
+                                          </Text>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Days" wrappingWidth="65.048828125">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Text>
+                                          <Text layoutX="10.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CarID" wrappingWidth="85.048828125">
+                                             <VBox.margin>
+                                                <Insets top="9.0" />
+                                             </VBox.margin>
+                                          </Text>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Pane>
+                        <Pane prefHeight="133.0" prefWidth="331.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <children>
+                              <VBox layoutY="-1.0" prefHeight="134.0" prefWidth="249.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#addRentalClick" prefHeight="25.0" prefWidth="239.0" text="ADD RENTAL">
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#removeRentalClick" prefHeight="25.0" prefWidth="229.0" text="REMOVE SELECTED RENTAL">
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#modifyRentalClick" prefHeight="25.0" prefWidth="229.0" text="UPDATE SELECTED RENTAL">
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button layoutX="20.0" layoutY="90.0" mnemonicParsing="false" onAction="#clearInputClick" prefHeight="25.0" prefWidth="229.0" text="CLEAR RENTAL INPUT">
+                                       <VBox.margin>
+                                          <Insets left="10.0" right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+               </bottom>
+               <top>
+                  <HBox prefHeight="149.0" prefWidth="482.0">
+                     <children>
+                        <Pane prefHeight="149.0" prefWidth="367.0">
+                           <children>
+                              <VBox prefHeight="136.0" prefWidth="353.0" spacing="20.0">
+                                 <children>
+                                    <HBox prefHeight="61.0" prefWidth="351.0" spacing="10.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#filterByNameClick" prefHeight="25.0" prefWidth="143.0" text="FIlter by name">
+                                             <HBox.margin>
+                                                <Insets top="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <ChoiceBox fx:id="nameFilterCombo" prefHeight="25.0" prefWidth="204.0">
+                                             <HBox.margin>
+                                                <Insets top="5.0" />
+                                             </HBox.margin>
+                                          </ChoiceBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="35.0" prefWidth="366.0" spacing="10.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#filterByPriceClick" prefHeight="25.0" prefWidth="143.0" text="Filter by price" />
+                                          <Slider fx:id="priceFilterSlider" prefHeight="14.0" prefWidth="152.0">
+                                             <HBox.margin>
+                                                <Insets top="5.0" />
+                                             </HBox.margin>
+                                          </Slider>
+                                          <Label fx:id="priceSliderLabel" prefHeight="17.0" prefWidth="38.0">
+                                             <HBox.margin>
+                                                <Insets top="3.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Button mnemonicParsing="false" onAction="#resetFiltersClick" prefHeight="25.0" prefWidth="357.0" text="RESET FILTERS" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="100.0" prefWidth="143.0">
+                           <children>
+                              <VBox prefHeight="149.0" prefWidth="131.0" spacing="10.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#swapToCarMode" prefHeight="25.0" prefWidth="118.0" text="Car Mode" />
+                                    <RadioButton fx:id="ascFilterToggle" mnemonicParsing="false" onAction="#armAscFilter" prefHeight="17.0" prefWidth="133.0" text="Ascending filter" />
+                                    <RadioButton fx:id="descFilterToggle" mnemonicParsing="false" onAction="#armDescFilter" prefHeight="17.0" prefWidth="135.0" text="Descending filter" />
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" right="10.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+               </top>
+            </BorderPane>
+         </children>
+      </VBox>
+      <MenuBar prefHeight="25.0" prefWidth="522.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Close" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+              <items>
+                <MenuItem fx:id="undoMenu" mnemonicParsing="false" onAction="#undoClick" text="undo" />
+                  <MenuItem fx:id="redoMenu" mnemonicParsing="false" onAction="#redoClick" text="redo" />
+              </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </children>
+</Pane>

@@ -1,4 +1,4 @@
-1,Ford,Mustang,49.0,0
+1,Ford,Mustang,49.0,1
 2,Tesla,Model S,69.0,0
 3,Dacia,Logan,19.0,1
 6,Ford,Mondeo,25.0,1

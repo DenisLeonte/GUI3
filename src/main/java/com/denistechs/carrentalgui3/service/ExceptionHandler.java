@@ -72,7 +72,12 @@ public class ExceptionHandler{
 
     public static void GUIHandle(RuntimeException e){
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
+        alert.setContentText(e.getMessage());
+        alert.showAndWait();
+    }
+
+    public static void GUIHandle(Exception e){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setContentText(e.getMessage());
         alert.showAndWait();
     }

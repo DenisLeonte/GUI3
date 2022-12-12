@@ -1,3 +1,6 @@
+//TODO: fix repo button not activating properly
+//TODO: try to implement property modify from the UI
+
 package com.denistechs.carrentalgui3;
 
 import com.denistechs.carrentalgui3.domain.Car;
@@ -9,23 +12,25 @@ import com.denistechs.carrentalgui3.service.ExceptionCode;
 import com.denistechs.carrentalgui3.service.ExceptionHandler;
 import com.denistechs.carrentalgui3.service.PropertiesHandler;
 import com.denistechs.carrentalgui3.service.Validator;
-import javafx.beans.InvalidationListener;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
+import com.denistechs.carrentalgui3.service.actionHandler.ActionHandler;
+import com.denistechs.carrentalgui3.service.actionHandler.actions.AddAction;
+import com.denistechs.carrentalgui3.service.actionHandler.actions.ModifyAction;
+import com.denistechs.carrentalgui3.service.actionHandler.actions.RemoveAction;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.EmptyStackException;
 
 import static com.denistechs.carrentalgui3.fileHandlers.FilePathHandler.getFilePath;
 
@@ -39,6 +44,7 @@ public class HypervisorGUI {
     private CarRepository CR;
     private CarRentalRepository CRR;
     private boolean filterType = false;
+    private final ActionHandler AH;
 
     public HypervisorGUI(PropertiesHandler PH, ExceptionHandler EH){
         this.CRFH = new CarRepositoryFileHandler();
@@ -46,6 +52,7 @@ public class HypervisorGUI {
         this.PH = PH;
         this.EH = EH;
         this.V = new Validator();
+        this.AH = new ActionHandler();
         init();
     }
 
@@ -56,6 +63,7 @@ public class HypervisorGUI {
         this.EH = EH;
         this.CR = CR;
         this.CRR = CRR;
+        this.AH = new ActionHandler();
         this.V = new Validator();
     }
 
@@ -88,6 +96,12 @@ public class HypervisorGUI {
     private RadioButton ascFilterToggle = new RadioButton();
     @FXML
     private RadioButton descFilterToggle = new RadioButton();
+    final KeyCombination keyCombCtrZ = new KeyCodeCombination(KeyCode.Z, KeyCombination.SHORTCUT_DOWN);
+    final KeyCombination keyCombCtrY = new KeyCodeCombination(KeyCode.Y, KeyCombination.SHORTCUT_DOWN);
+    @FXML
+    private MenuItem undoMenu = new MenuItem();
+    private MenuItem redoMenu = new MenuItem();
+
 
     @FXML
     private void initialize(){
@@ -95,7 +109,7 @@ public class HypervisorGUI {
         carMakeColumn.setCellValueFactory(new PropertyValueFactory<>("Manufacturer"));
         carModelColumn.setCellValueFactory(new PropertyValueFactory<>("Model"));
         carPriceColumn.setCellValueFactory(new PropertyValueFactory<>("CostPerDay"));
-        carAvailableColumn.setCellValueFactory(new PropertyValueFactory<>("Taken"));
+        carAvailableColumn.setCellValueFactory(new PropertyValueFactory<>("Available"));
 
         for(String key: CR.getAllManufacturers().keySet()){
             makeFilterCombo.getItems().add(key);
@@ -131,6 +145,7 @@ public class HypervisorGUI {
                 try {
                     V.validateCar(c);
                     this.CR.add((Integer) c.getID(),c);
+                    this.AH.addAction(new AddAction(c));
                 } catch (ExceptionCode ex) {
                     this.EH.GUIHandle(ex);
                 } catch(RuntimeException ex)
@@ -138,9 +153,9 @@ public class HypervisorGUI {
                     this.EH.GUIHandle(ex);
                 }
                 refreshCarTable();
-                this.carModelInput.clear();
-                this.carMakeInput.clear();
-                this.carPriceInput.clear();
+                clearInputClick();
+                refreshMakeFilterCombo();
+                refreshUndoRedoMenu();
             }
     }
 
@@ -148,11 +163,18 @@ public class HypervisorGUI {
     public void removeCarClick(){
         Car c = carTable.getSelectionModel().getSelectedItem();
         try {
+            if(c.getTaken() == true) throw new RuntimeException("Unable to delete occupied car");
             this.CR.remove((Integer) c.getID(), c);
+            this.AH.addAction(new RemoveAction(c));
         } catch (ExceptionCode ex) {
+            this.EH.GUIHandle(ex);
+        }catch (RuntimeException ex){
             this.EH.GUIHandle(ex);
         }
         refreshCarTable();
+        clearInputClick();
+        refreshMakeFilterCombo();
+        refreshUndoRedoMenu();
     }
 
     @FXML
@@ -173,17 +195,18 @@ public class HypervisorGUI {
         if(!(this.carMakeInput.getText().isEmpty() || this.carModelInput.getText().isEmpty() || this.carPriceInput.getText().isEmpty()))
         {
             Car oc = carTable.getSelectionModel().getSelectedItem();
-            Car nc = new Car(this.carModelInput.getText(),this.carMakeInput.getText(),Double.parseDouble(this.carPriceInput.getText()),this.CR.getGreatestID() + 1, false);
+            Car nc = new Car(this.carModelInput.getText(),this.carMakeInput.getText(),Double.parseDouble(this.carPriceInput.getText()),oc.getID(), false);
             V.validateCar(nc);
             try {
                 this.CR.modify((Integer) oc.getID(),oc, nc);
+                this.AH.addAction(new ModifyAction(oc, nc));
             } catch (ExceptionCode ex) {
                 throw new RuntimeException(ex);
             }
             refreshCarTable();
-            this.carModelInput.clear();
-            this.carMakeInput.clear();
-            this.carPriceInput.clear();
+            clearInputClick();
+            refreshMakeFilterCombo();
+            refreshUndoRedoMenu();
         }
     }
 
@@ -192,6 +215,13 @@ public class HypervisorGUI {
         this.carModelInput.clear();
         this.carMakeInput.clear();
         this.carPriceInput.clear();
+    }
+
+    public void refreshMakeFilterCombo(){
+        this.makeFilterCombo.getItems().clear();
+        for(String key: CR.getAllManufacturers().keySet()){
+            makeFilterCombo.getItems().add(key);
+        }
     }
 
     @FXML
@@ -242,16 +272,86 @@ public class HypervisorGUI {
     }
 
     @FXML
-    public void swapToRentalMode(){
+    public void swapToRentalMode(ActionEvent event){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Rental-view.fxml"));
-            stop();
             RentalHypervisorGUI rentalHypervisorGUI = new RentalHypervisorGUI(PH, EH, CR, CRR);
             loader.setController(rentalHypervisorGUI);
             Parent root = loader.load();
-            Scene scene = new Scene(root, 522,563);
+            Scene scene = new Scene(root, 522,531);
+            Stage mainStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            event.consume();
+            mainStage.setScene(scene);
         } catch (Exception ex) {
-            throw new RuntimeException(ex);
+            EH.GUIHandle(ex);
+        }
+    }
+
+    @FXML
+    public void undoClick(){
+        try {
+            this.CR = this.AH.undo(this.CR);
+            refreshCarTable();
+            refreshUndoRedoMenu();
+        }catch (ExceptionCode e){
+            EH.GUIHandle(e);
+        }catch (EmptyStackException e) {
+            //DO nothing
+        }
+    }
+
+    @FXML
+    public void redoClick(){
+        try {
+            this.CR = this.AH.redo(this.CR);
+            refreshCarTable();
+            refreshUndoRedoMenu();
+        }catch (ExceptionCode e){
+            EH.GUIHandle(e);
+        } catch (EmptyStackException e){
+            EH.GUIHandle(e);
+        }
+    }
+
+    @FXML
+    public void handleUndoRedo(KeyEvent event){
+        if(keyCombCtrZ.match(event)){
+            event.consume();
+            try {
+                this.CR = this.AH.undo(this.CR);
+                refreshCarTable();
+                refreshUndoRedoMenu();
+            }catch (ExceptionCode e){
+                EH.GUIHandle(e);
+            }catch (EmptyStackException e){
+                EH.GUIHandle(e);
+            }refreshUndoRedoMenu();
+        }
+        if(keyCombCtrY.match(event)){
+            event.consume();
+            try {
+                this.CR = this.AH.redo(this.CR);
+                refreshCarTable();
+                refreshUndoRedoMenu();
+            }catch (ExceptionCode e){
+                EH.GUIHandle(e);
+            } catch (EmptyStackException e){
+                EH.GUIHandle(e);
+            }
+        }
+    }
+
+    private void refreshUndoRedoMenu(){
+        if(this.AH.undoStackStatus()){
+            this.undoMenu.setDisable(false);
+        }else{
+            this.undoMenu.setDisable(true);
+        }
+
+        if(this.AH.redoStackStatus()){
+            this.redoMenu.setDisable(false);
+        }else{
+            this.redoMenu.setDisable(true);
         }
     }
 

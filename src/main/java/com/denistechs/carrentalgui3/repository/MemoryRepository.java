@@ -1,14 +1,14 @@
 package com.denistechs.carrentalgui3.repository;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.denistechs.carrentalgui3.domain.Car;
 import com.denistechs.carrentalgui3.domain.CarRental;
 import com.denistechs.carrentalgui3.domain.Entity;
+import com.denistechs.carrentalgui3.service.ExceptionCode;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
-import com.denistechs.carrentalgui3.service.ExceptionCode;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -64,7 +64,7 @@ public class MemoryRepository<ID,T_ELEM extends Entity> implements repository<ID
     }
 
     public Integer getGreatestID() {
-        Integer m_ID = null;
+        Integer m_ID = 0;
         for(T_ELEM t: this.repo.values()){
             if(m_ID == null){
                 m_ID = (Integer)t.getID();

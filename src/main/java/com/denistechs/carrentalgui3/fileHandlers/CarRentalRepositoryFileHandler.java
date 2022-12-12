@@ -1,15 +1,15 @@
 package com.denistechs.carrentalgui3.fileHandlers;
 
-import com.google.gson.Gson;
 import com.denistechs.carrentalgui3.domain.Car;
 import com.denistechs.carrentalgui3.domain.CarRental;
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.Marshaller;
-import jakarta.xml.bind.Unmarshaller;
 import com.denistechs.carrentalgui3.repository.CarRentalRepository;
 import com.denistechs.carrentalgui3.repository.CarRepository;
 import com.denistechs.carrentalgui3.service.ExceptionCode;
 import com.denistechs.carrentalgui3.service.Validator;
+import com.google.gson.Gson;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.Unmarshaller;
 
 import java.io.*;
 import java.sql.*;

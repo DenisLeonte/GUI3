@@ -1,7 +1,7 @@
 package com.denistechs.carrentalgui3.repository;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.denistechs.carrentalgui3.domain.CarRental;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
 
@@ -36,5 +36,25 @@ public class CarRentalRepository extends MemoryRepository<Integer, CarRental> {
             sb.append(cr.toString()).append("\n");
         }
         return sb.toString();
+    }
+
+    public double getMinPrice(){
+        double min = Double.MAX_VALUE;
+        for(CarRental cr : this.repo.values()){
+            if(cr.getCost() <= min){
+                min = cr.getCost();
+            }
+        }
+        return min;
+    }
+
+    public double getMaxPrice(){
+        double max = Double.MIN_VALUE;
+        for(CarRental cr : this.repo.values()){
+            if(cr.getCost() >= max){
+                max = cr.getCost();
+            }
+        }
+        return max;
     }
 }

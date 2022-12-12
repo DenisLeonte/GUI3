@@ -5,13 +5,15 @@
       "model" : "Mustang",
       "manufacturer" : "Ford",
       "costPerDay" : 49.0,
-      "taken" : true
+      "available" : true,
+      "taken" : false
     },
     "2" : {
       "id" : 2,
       "model" : "Model S",
       "manufacturer" : "Tesla",
       "costPerDay" : 69.0,
+      "available" : false,
       "taken" : true
     },
     "3" : {
@@ -19,6 +21,7 @@
       "model" : "Logan",
       "manufacturer" : "Dacia",
       "costPerDay" : 19.0,
+      "available" : true,
       "taken" : false
     },
     "6" : {
@@ -26,30 +29,33 @@
       "model" : "Mondeo",
       "manufacturer" : "Ford",
       "costPerDay" : 25.0,
+      "available" : true,
       "taken" : false
     }
   },
   "size" : 4,
+  "maxPrice" : 69.0,
+  "minPrice" : 19.0,
   "allManufacturers" : {
     "Dacia" : 1,
     "Tesla" : 1,
     "Ford" : 2
   },
-  "maxPrice" : 69.0,
-  "minPrice" : 19.0,
   "map" : {
     "1" : {
       "id" : 1,
       "model" : "Mustang",
       "manufacturer" : "Ford",
       "costPerDay" : 49.0,
-      "taken" : true
+      "available" : true,
+      "taken" : false
     },
     "2" : {
       "id" : 2,
       "model" : "Model S",
       "manufacturer" : "Tesla",
       "costPerDay" : 69.0,
+      "available" : false,
       "taken" : true
     },
     "3" : {
@@ -57,6 +63,7 @@
       "model" : "Logan",
       "manufacturer" : "Dacia",
       "costPerDay" : 19.0,
+      "available" : true,
       "taken" : false
     },
     "6" : {
@@ -64,33 +71,38 @@
       "model" : "Mondeo",
       "manufacturer" : "Ford",
       "costPerDay" : 25.0,
+      "available" : true,
       "taken" : false
     }
   },
-  "greatestID" : 6,
   "values" : [ {
     "id" : 1,
     "model" : "Mustang",
     "manufacturer" : "Ford",
     "costPerDay" : 49.0,
-    "taken" : true
+    "available" : true,
+    "taken" : false
   }, {
     "id" : 2,
     "model" : "Model S",
     "manufacturer" : "Tesla",
     "costPerDay" : 69.0,
+    "available" : false,
     "taken" : true
   }, {
     "id" : 3,
     "model" : "Logan",
     "manufacturer" : "Dacia",
     "costPerDay" : 19.0,
+    "available" : true,
     "taken" : false
   }, {
     "id" : 6,
     "model" : "Mondeo",
     "manufacturer" : "Ford",
     "costPerDay" : 25.0,
+    "available" : true,
     "taken" : false
-  } ]
+  } ],
+  "greatestID" : 6
 }

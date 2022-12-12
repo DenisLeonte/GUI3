@@ -144,4 +144,9 @@ public class Car<Integer> extends Entity<Integer>{
     public void setTaken(Boolean taken) {
         isTaken = taken;
     }
+
+    public boolean isAvailable()
+    {
+        return !this.isTaken;
+    }
 }

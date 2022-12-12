@@ -15,10 +15,10 @@ public class Validator {
             errorTriggered = true;
             errorMessage += "Manufacturer name must start with a capital letter\n";
         }
-        if(!Character.isUpperCase(car.getModel().charAt(0)))
+        if(car.getModel().isEmpty())
         {
             errorTriggered = true;
-            errorMessage += "Model name must start with a capital letter\n";
+            errorMessage += "Model name cannot be empty\n";
         }
         if(car.getCostPerDay() < 0)
         {

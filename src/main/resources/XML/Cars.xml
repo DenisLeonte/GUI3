@@ -8,7 +8,7 @@
                 <costPerDay>49.0</costPerDay>
                 <manufacturer>Ford</manufacturer>
                 <model>Mustang</model>
-                <taken>true</taken>
+                <taken>false</taken>
             </value>
         </entry>
         <entry>

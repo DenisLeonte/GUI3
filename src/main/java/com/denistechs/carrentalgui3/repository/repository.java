@@ -1,6 +1,5 @@
 package com.denistechs.carrentalgui3.repository;
 
-import com.denistechs.carrentalgui3.domain.Entity;
 import com.denistechs.carrentalgui3.service.ExceptionCode;
 
 public interface repository<ID, T_ELEM> {
